@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import qs from 'qs';
 
-import { Api } from '../api'
+import { Service1 } from '../service'
 import {constructUrl} from '../utils'
 import {
   defaultOffset,
@@ -11,11 +11,7 @@ import {
   limitList
 } from '../constants'
 
-
-
-
 export const List = () => {
-
   const history = useHistory();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -24,9 +20,6 @@ export const List = () => {
   const [list, setlist] = useState([]);
   const [isShown, setisShown] = useState(false);
   const [isloading, setisloading] = useState(false);
-
-
-  
 
   useEffect(() => {
 
@@ -39,7 +32,7 @@ export const List = () => {
 
   useEffect(() => {
     setisloading(true)
-    Api
+    Service1
       .getList({
         limit: query.limit,
         offset: query.offset,
@@ -89,7 +82,10 @@ export const List = () => {
       </ button>
       </div>}
 
-      <table>
+      {isloading && "ждем"}
+
+      {!isloading && 
+      <><table>
         <thead>
           <tr>
             <th>идентификатор</th>
@@ -160,6 +156,7 @@ export const List = () => {
           }
           
         </select>
+        </>}
     </div>
   )
 }

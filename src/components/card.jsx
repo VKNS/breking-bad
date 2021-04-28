@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import qs from 'qs';
 
-import { Api } from '../api'
+import { Service1 } from '../service'
 
 export const Card = () => {
 
@@ -13,7 +13,7 @@ export const Card = () => {
 
 
   useEffect(() => {
-    Api
+    Service1
       .getCharacter({id: query.id })
       .then(res => {
         setcard(res.data)

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const Api = {
+export const Service1 = {
   baseRoute: "https://breakingbadapi.com/",
 
   getList(params) {

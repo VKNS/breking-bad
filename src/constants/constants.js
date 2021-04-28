@@ -5,6 +5,6 @@ export const maxCharacters = 62;
 export const limitList = [10, 20, 30];
 
 export const routes = {
-  list: "/list",
+  list: "/",
   card: "/card"
 }
